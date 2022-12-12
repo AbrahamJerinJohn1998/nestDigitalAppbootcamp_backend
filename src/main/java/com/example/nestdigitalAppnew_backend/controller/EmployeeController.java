@@ -13,7 +13,7 @@ import java.util.Map;
 public class EmployeeController {
     @Autowired
     private EmployeeDao dao;
-    @CrossOrigin("*")
+    @CrossOrigin(origins = "*")
     @PostMapping(path = "/add", consumes ="application/json",produces = "application/json")
     public Map<String,String> AddEmployee(@RequestBody Employee e)
     {
@@ -56,5 +56,34 @@ public class EmployeeController {
         map.put("status","success");
         return map;
 
+    }
+    @CrossOrigin(origins = "*")
+    @PostMapping(path = "/emplogin",consumes = "application/json",produces = "application/json")
+    public Map<String,String> UserLogin(@RequestBody Employee e)
+    {
+        String username= e.getUsername().toString();
+        String password=e.getPassword().toString();
+        System.out.println(username);
+        System.out.println(password);
+        List<Employee> result=(List<Employee>) dao.UserLogin(e.getUsername(),e.getPassword());
+        HashMap<String,String> map=new HashMap<>();
+        if(result.size()==0)
+        {
+            map.put("status","failed");
+        }
+        else{
+            int id=result.get(0).getId();
+            map.put("userId",String.valueOf(id));
+            map.put("status","success");
+        }
+        return map;
+    }
+    @CrossOrigin(origins = "*")
+    @PostMapping(path = "/empviewprofile",consumes = "application/json",produces = "application/json")
+    public List<Employee> UserById(@RequestBody Employee e)
+    {
+        String id=String.valueOf(e.getId());
+        System.out.println(id);
+        return (List<Employee>) dao.UserById(e.getId());
     }
 }
