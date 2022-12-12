@@ -14,7 +14,7 @@ public class EmployeeController {
     @Autowired
     private EmployeeDao dao;
     @CrossOrigin(origins = "*")
-    @PostMapping(path = "/add", consumes ="application/json",produces = "application/json")
+    @PostMapping(path = "/addemp", consumes ="application/json",produces = "application/json")
     public Map<String,String> AddEmployee(@RequestBody Employee e)
     {
         System.out.println(e.getName().toString());
@@ -32,13 +32,13 @@ public class EmployeeController {
     }
 
     @CrossOrigin(origins = "*")
-    @GetMapping("/view")
+    @GetMapping("/viewemp")
     public List<Employee> ViewEmployee()
     {
         return (List<Employee>) dao.findAll();
     }
     @CrossOrigin(origins = "*")
-    @PostMapping(path = "/search",consumes = "application/json",produces = "application/json")
+    @PostMapping(path = "/searchemp",consumes = "application/json",produces = "application/json")
     public List<Employee> SearchEmployee(@RequestBody Employee e)
     {
         int empcode=e.getEmpcode();
@@ -46,7 +46,7 @@ public class EmployeeController {
         return (List<Employee>) dao.SearchEmployee(e.getEmpcode());
     }
     @CrossOrigin(origins = "*")
-    @PostMapping(path = "/delete",consumes = "application/json",produces = "application/json")
+    @PostMapping(path = "/deleteemp",consumes = "application/json",produces = "application/json")
     public Map<String, String> DeleteEmployee(@RequestBody Employee e)
     {
         String id=String.valueOf(e.getId());
@@ -85,5 +85,25 @@ public class EmployeeController {
         String id=String.valueOf(e.getId());
         System.out.println(id);
         return (List<Employee>) dao.UserById(e.getId());
+    }
+    @CrossOrigin(origins = "*")
+    @PostMapping(path = "/updateemp",produces = "application/json",consumes = "application/json")
+    public HashMap<String,String> UpdateEmployee(@RequestBody Employee e)
+    {
+        String eid=String.valueOf(e.getId());
+        String empCode=String.valueOf(e.getEmpcode());
+        String name=String.valueOf(e.getName().toString());
+        String designation=String.valueOf(e.getDesignation().toString());
+        String address=String.valueOf(e.getAddress().toString());
+        String email=String.valueOf(e.getEmail().toString());
+        String password=String.valueOf(e.getPassword().toString());
+
+        dao.UpdateEmployeeFields(e.getId(),e.getEmpcode(),e.getName(),e.getDesignation(),e.getAddress(),e.getEmail(),e.getPassword());
+
+        HashMap<String,String> map=new HashMap<>();
+
+        map.put("status","updated employee record!");
+
+        return map;
     }
 }
