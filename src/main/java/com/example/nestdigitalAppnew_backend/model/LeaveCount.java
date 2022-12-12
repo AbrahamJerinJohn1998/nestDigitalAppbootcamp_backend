@@ -15,7 +15,7 @@ private int empcode;
 private String year;
 private String casualleave;
 private String sickleave;
-private String specialleave
+private String specialleave;
 
     public LeaveCount() {
     }
