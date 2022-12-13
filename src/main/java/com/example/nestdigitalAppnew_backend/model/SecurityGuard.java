@@ -1,33 +1,36 @@
 package com.example.nestdigitalAppnew_backend.model;
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
-@Table(name = "securityguard")
+@Table(name = "security")
 public class SecurityGuard {
+
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    private int empcode;
+
+    private int empCode;
+
     private String name;
-    private String email;
-    private String address;
-    private String username;
+
+    private int salary;
+
+    private String phoneNo;
+
+    private String emailId;
+
     private String password;
 
     public SecurityGuard() {
     }
 
-    public SecurityGuard(int id, int empcode, String name, String email, String address, String username, String password) {
+    public SecurityGuard(int id, int empCode, String name, int salary, String phoneNo, String emailId, String password) {
         this.id = id;
-        this.empcode = empcode;
+        this.empCode = empCode;
         this.name = name;
-        this.email = email;
-        this.address = address;
-        this.username = username;
+        this.salary = salary;
+        this.phoneNo = phoneNo;
+        this.emailId = emailId;
         this.password = password;
     }
 
@@ -39,12 +42,12 @@ public class SecurityGuard {
         this.id = id;
     }
 
-    public int getEmpcode() {
-        return empcode;
+    public int getEmpCode() {
+        return empCode;
     }
 
-    public void setEmpcode(int empcode) {
-        this.empcode = empcode;
+    public void setEmpCode(int empCode) {
+        this.empCode = empCode;
     }
 
     public String getName() {
@@ -55,28 +58,28 @@ public class SecurityGuard {
         this.name = name;
     }
 
-    public String getEmail() {
-        return email;
+    public int getSalary() {
+        return salary;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setSalary(int salary) {
+        this.salary = salary;
     }
 
-    public String getAddress() {
-        return address;
+    public String getPhoneNo() {
+        return phoneNo;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setPhoneNo(String phoneNo) {
+        this.phoneNo = phoneNo;
     }
 
-    public String getUsername() {
-        return username;
+    public String getEmailId() {
+        return emailId;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setEmailId(String emailId) {
+        this.emailId = emailId;
     }
 
     public String getPassword() {
@@ -87,3 +90,4 @@ public class SecurityGuard {
         this.password = password;
     }
 }
+
