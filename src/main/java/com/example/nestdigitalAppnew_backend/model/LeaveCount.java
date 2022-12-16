@@ -13,14 +13,14 @@ public class LeaveCount {
     private int id;
 private int empcode;
 private String year;
-private String casualleave;
-private String sickleave;
-private String specialleave;
+private int casualleave;
+private int sickleave;
+private int specialleave;
 
     public LeaveCount() {
     }
 
-    public LeaveCount(int id, int empcode, String year, String casualleave, String sickleave, String specialleave) {
+    public LeaveCount(int id, int empcode, String year, int casualleave, int sickleave, int specialleave) {
         this.id = id;
         this.empcode = empcode;
         this.year = year;
@@ -53,27 +53,27 @@ private String specialleave;
         this.year = year;
     }
 
-    public String getCasualleave() {
+    public int getCasualleave() {
         return casualleave;
     }
 
-    public void setCasualleave(String casualleave) {
+    public void setCasualleave(int casualleave) {
         this.casualleave = casualleave;
     }
 
-    public String getSickleave() {
+    public int getSickleave() {
         return sickleave;
     }
 
-    public void setSickleave(String sickleave) {
+    public void setSickleave(int sickleave) {
         this.sickleave = sickleave;
     }
 
-    public String getSpecialleave() {
+    public int getSpecialleave() {
         return specialleave;
     }
 
-    public void setSpecialleave(String specialleave) {
+    public void setSpecialleave(int specialleave) {
         this.specialleave = specialleave;
     }
 }
