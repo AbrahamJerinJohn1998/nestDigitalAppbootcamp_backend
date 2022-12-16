@@ -1,36 +1,41 @@
 package com.example.nestdigitalAppnew_backend.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+
+import jakarta.persistence.*;
 
 @Entity
-@Table(name = "employee")
+@Table(name = "employees")
 public class Employee {
-    @Id
-    @GeneratedValue
-    private int id;
-    private int empcode;
-    private String name;
-    private String designation;
-    private String email;
-    private String address;
-    private String username;
-    private String password;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
+
+    private int empCode;
+
+    private String name;
+
+    private String designation;
+
+    private int salary;
+
+    private String phoneNo;
+
+    private String emailId;
+
+    private String password;
 
     public Employee() {
     }
 
-    public Employee(int id, int empcode, String name, String designation, String email, String address, String username, String password) {
+    public Employee(int id, int empCode, String name, String designation, int salary, String phoneNo, String emailId, String password) {
         this.id = id;
-        this.empcode = empcode;
+        this.empCode = empCode;
         this.name = name;
         this.designation = designation;
-        this.email = email;
-        this.address = address;
-        this.username = username;
+        this.salary = salary;
+        this.phoneNo = phoneNo;
+        this.emailId = emailId;
         this.password = password;
     }
 
@@ -42,12 +47,12 @@ public class Employee {
         this.id = id;
     }
 
-    public int getEmpcode() {
-        return empcode;
+    public int getEmpCode() {
+        return empCode;
     }
 
-    public void setEmpcode(int empcode) {
-        this.empcode = empcode;
+    public void setEmpCode(int empCode) {
+        this.empCode = empCode;
     }
 
     public String getName() {
@@ -66,28 +71,28 @@ public class Employee {
         this.designation = designation;
     }
 
-    public String getEmail() {
-        return email;
+    public int getSalary() {
+        return salary;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setSalary(int salary) {
+        this.salary = salary;
     }
 
-    public String getAddress() {
-        return address;
+    public String getPhoneNo() {
+        return phoneNo;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setPhoneNo(String phoneNo) {
+        this.phoneNo = phoneNo;
     }
 
-    public String getUsername() {
-        return username;
+    public String getEmailId() {
+        return emailId;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setEmailId(String emailId) {
+        this.emailId = emailId;
     }
 
     public String getPassword() {

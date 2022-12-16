@@ -1,37 +1,40 @@
 package com.example.nestdigitalAppnew_backend.model;
+import jakarta.persistence.*;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-
-import java.util.Date;
 @Entity
-@Table(name = "leave")
+@Table(name = "leaveApplication")
 public class Leave {
+
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    private int empcode;
-    private  String leavetype;
+
+    private int empId;
+
+    private String leaveType;
+
     private String remarks;
-    private Date applieddate;
-    private Date fromdate;
-    private Date todate;
-    private String status;
+
+    private String fromDate;
+
+    private String toDate;
+
+    private String applyDate;
+
+    private String leaveStatus;
 
     public Leave() {
     }
 
-    public Leave(int id, int empcode, String leavetype, String remarks, Date applieddate, Date fromdate, Date todate, String status) {
+    public Leave(int id, int empId, String leaveType, String remarks, String fromDate, String toDate, String applyDate, String leaveStatus) {
         this.id = id;
-        this.empcode = empcode;
-        this.leavetype = leavetype;
+        this.empId = empId;
+        this.leaveType = leaveType;
         this.remarks = remarks;
-        this.applieddate = applieddate;
-        this.fromdate = fromdate;
-        this.todate = todate;
-        this.status = status;
+        this.fromDate = fromDate;
+        this.toDate = toDate;
+        this.applyDate = applyDate;
+        this.leaveStatus = leaveStatus;
     }
 
     public int getId() {
@@ -42,20 +45,20 @@ public class Leave {
         this.id = id;
     }
 
-    public int getEmpcode() {
-        return empcode;
+    public int getEmpId() {
+        return empId;
     }
 
-    public void setEmpcode(int empcode) {
-        this.empcode = empcode;
+    public void setEmpId(int empId) {
+        this.empId = empId;
     }
 
-    public String getLeavetype() {
-        return leavetype;
+    public String getLeaveType() {
+        return leaveType;
     }
 
-    public void setLeavetype(String leavetype) {
-        this.leavetype = leavetype;
+    public void setLeaveType(String leaveType) {
+        this.leaveType = leaveType;
     }
 
     public String getRemarks() {
@@ -66,35 +69,35 @@ public class Leave {
         this.remarks = remarks;
     }
 
-    public Date getApplieddate() {
-        return applieddate;
+    public String getFromDate() {
+        return fromDate;
     }
 
-    public void setApplieddate(Date applieddate) {
-        this.applieddate = applieddate;
+    public void setFromDate(String fromDate) {
+        this.fromDate = fromDate;
     }
 
-    public Date getFromdate() {
-        return fromdate;
+    public String getToDate() {
+        return toDate;
     }
 
-    public void setFromdate(Date fromdate) {
-        this.fromdate = fromdate;
+    public void setToDate(String toDate) {
+        this.toDate = toDate;
     }
 
-    public Date getTodate() {
-        return todate;
+    public String getApplyDate() {
+        return applyDate;
     }
 
-    public void setTodate(Date todate) {
-        this.todate = todate;
+    public void setApplyDate(String applyDate) {
+        this.applyDate = applyDate;
     }
 
-    public String getStatus() {
-        return status;
+    public String getLeaveStatus() {
+        return leaveStatus;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setLeaveStatus(String leaveStatus) {
+        this.leaveStatus = leaveStatus;
     }
 }

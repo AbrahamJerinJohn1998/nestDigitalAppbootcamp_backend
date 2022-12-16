@@ -1,32 +1,37 @@
 package com.example.nestdigitalAppnew_backend.model;
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
-@Table(name = "leavecount")
+@Table(name = "leaveCount")
 public class LeaveCount {
-@Id
-    @GeneratedValue
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-private int empcode;
-private String year;
-private int casualleave;
-private int sickleave;
-private int specialleave;
+
+    private int empId;
+
+    private String year;
+
+    private int casualLeave;
+
+    private int sickLeave;
+
+    private int specialLeave;
+
+    private String leaveType;
 
     public LeaveCount() {
     }
 
-    public LeaveCount(int id, int empcode, String year, int casualleave, int sickleave, int specialleave) {
+    public LeaveCount(int id, int empId, String year, int casualLeave, int sickLeave, int specialLeave, String leaveType) {
         this.id = id;
-        this.empcode = empcode;
+        this.empId = empId;
         this.year = year;
-        this.casualleave = casualleave;
-        this.sickleave = sickleave;
-        this.specialleave = specialleave;
+        this.casualLeave = casualLeave;
+        this.sickLeave = sickLeave;
+        this.specialLeave = specialLeave;
+        this.leaveType = leaveType;
     }
 
     public int getId() {
@@ -37,12 +42,12 @@ private int specialleave;
         this.id = id;
     }
 
-    public int getEmpcode() {
-        return empcode;
+    public int getEmpId() {
+        return empId;
     }
 
-    public void setEmpcode(int empcode) {
-        this.empcode = empcode;
+    public void setEmpId(int empId) {
+        this.empId = empId;
     }
 
     public String getYear() {
@@ -53,27 +58,35 @@ private int specialleave;
         this.year = year;
     }
 
-    public int getCasualleave() {
-        return casualleave;
+    public int getCasualLeave() {
+        return casualLeave;
     }
 
-    public void setCasualleave(int casualleave) {
-        this.casualleave = casualleave;
+    public void setCasualLeave(int casualLeave) {
+        this.casualLeave = casualLeave;
     }
 
-    public int getSickleave() {
-        return sickleave;
+    public int getSickLeave() {
+        return sickLeave;
     }
 
-    public void setSickleave(int sickleave) {
-        this.sickleave = sickleave;
+    public void setSickLeave(int sickLeave) {
+        this.sickLeave = sickLeave;
     }
 
-    public int getSpecialleave() {
-        return specialleave;
+    public int getSpecialLeave() {
+        return specialLeave;
     }
 
-    public void setSpecialleave(int specialleave) {
-        this.specialleave = specialleave;
+    public void setSpecialLeave(int specialLeave) {
+        this.specialLeave = specialLeave;
+    }
+
+    public String getLeaveType() {
+        return leaveType;
+    }
+
+    public void setLeaveType(String leaveType) {
+        this.leaveType = leaveType;
     }
 }
